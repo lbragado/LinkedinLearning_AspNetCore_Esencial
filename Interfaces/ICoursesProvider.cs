@@ -9,5 +9,7 @@ namespace ListaCursos.Interfaces
         Task<ICollection<Course>> GetAllAsync();
 
         Task<Course> GetAsync(int id);
+
+        Task<ICollection<Course>> SearchAsync(string search);
     }
 }
