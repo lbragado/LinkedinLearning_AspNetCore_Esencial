@@ -22,9 +22,18 @@
         <td>@course.Author</td>
         <td>
             <a class="btn btn-link"
-               asp-page="Details"                
-               asp-route-id="@course.Id"> @*Recordar asp-route-NombrePropiedad*@
+               asp-page="Details"
+               asp-route-id="@course.Id">
+                @*Recordar asp-route-NombrePropiedad*@
                 Detalle
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-link"
+               asp-page="Edit"
+               asp-route-id="@course.Id">
+                @*Recordar asp-route-NombrePropiedad esto funciona con Get*@
+                Editar
             </a>
         </td>
     </tr>
