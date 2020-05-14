@@ -25,10 +25,16 @@ namespace ListaCursos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Le ponemos como nombre único "coursesService" y la expresión lambda nos permitirá
+            //establecer la ruta de la Web API
+            services.AddHttpClient("coursesService", c => {
+                c.BaseAddress = new Uri(Configuration["CoursesService"]);
+            });
+
             services.AddRazorPages();
 
             //Cuando soliciten la interfaz ICoursesProvider se inyectará un objeto de tipo FakeCoursesProvider
-            services.AddSingleton<ICoursesProvider, FakeCoursesProvider>();
+            services.AddSingleton<ICoursesProvider, WebApiCoursesProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -69,5 +69,13 @@ namespace ListaCursos.Providers
             else
                 return Task.FromResult(false);
         }
+
+        public Task<(bool IsSuccess, int? Id)> AddSync(Course course)
+        {
+            //Por el momento el ID de nuestros cursos depende de nuestro proveedor, no tenemos un autoincremental por eso lo calculamos nosotros
+            course.Id = repo.Max(c => c.Id) + 1;
+            repo.Add(course);
+            return Task.FromResult((true, (int?)course.Id));
+        }
     }
 }

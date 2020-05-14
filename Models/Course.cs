@@ -18,7 +18,6 @@ namespace ListaCursos.Models
         [Display(Name="Descripción")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage ="El autor es requerido")]
         [Display(Name = "Autor")]
         public string  Author { get; set; }
 

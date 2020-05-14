@@ -13,5 +13,7 @@ namespace ListaCursos.Interfaces
         Task<ICollection<Course>> SearchAsync(string search);
 
         Task<bool> UpdateAsync(int id, Course coures);
+
+        Task<(bool IsSuccess, int? Id)> AddSync(Course course);
     }
 }
